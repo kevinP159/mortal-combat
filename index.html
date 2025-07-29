@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fighting Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&family=Permanent+Marker&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-container">
+        <div class="health-bars">
+            <div class="health-bar-container">
+                <div class="health-bar player1-health"></div>
+                <div class="health-bar-back"></div>
+                <div class="name-tag">SCORPION</div>
+            </div>
+            <div class="health-bar-container">
+                <div class="health-bar player2-health"></div>
+                <div class="health-bar-back"></div>
+                <div class="name-tag">SUB-ZERO</div>
+            </div>
+        </div>
+        
+        <div class="timer">99</div>
+        
+        <div class="fight-announcement">FIGHT!</div>
+        <div class="round-announcement">ROUND 1</div>
+        
+        <div class="game-screen">
+            <div class="background"></div>
+            <div class="fighter player1"></div>
+            <div class="fighter player2"></div>
+            <div class="blood-effect"></div>
+            <div class="combo-display"></div>
+        </div>
+        
+        <div class="controls">
+            <div class="player-controls">
+                <h3>PLAYER 1</h3>
+                <p>Move: A & D</p>
+                <p>Jump: W</p>
+                <p>Punch: F</p>
+                <p>Kick: G</p>
+                <p>Special: V</p>
+            </div>
+            <div class="player-controls">
+                <h3>PLAYER 2</h3>
+                <p>Move: ← & →</p>
+                <p>Jump: ↑</p>
+                <p>Punch: L</p>
+                <p>Kick: K</p>
+                <p>Special: N</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="start-screen">
+        <h1>MORTAL KOMBAT</h1>
+        <button class="start-button">START GAME</button>
+        <div class="character-select">
+            <div class="character-option player1-select" data-character="scorpion">
+                <img src="assets/fighter1.png" alt="Scorpion">
+                <p>SCORPION</p>
+            </div>
+            <div class="character-option player2-select" data-character="subzero">
+                <img src="assets/fighter2.png" alt="Sub-Zero">
+                <p>SUB-ZERO</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Audio Elements -->
+    <audio id="punch-sound" src="assets/sounds/punch.wav"></audio>
+    <audio id="kick-sound" src="assets/sounds/kick.wav"></audio>
+    <audio id="special-sound" src="assets/sounds/special.wav"></audio>
+    <audio id="background-music" src="assets/sounds/background.mp3" loop></audio>
+    
+    <script src="script.js"></script>
+</body>
+</html>
