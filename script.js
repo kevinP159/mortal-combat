@@ -400,16 +400,22 @@ document.addEventListener('DOMContentLoaded', () => {
     // Jump action
     function jump(player) {
         if (game[player].isJumping) return;
-        
+
         game[player].isJumping = true;
         const fighterElement = player === 'player1' ? player1 : player2;
-        
+        const playerNum = player === 'player1' ? 1 : 2;
+
+        // Change image to jump sprite
+        fighterElement.style.backgroundImage = `url('assets/fighter${playerNum}jump.png')`;
+
         fighterElement.style.animation = 'none';
         void fighterElement.offsetWidth;
         fighterElement.style.animation = 'jump 0.8s ease-in-out';
-        
+
         setTimeout(() => {
             game[player].isJumping = false;
+            // Revert to default sprite
+            fighterElement.style.backgroundImage = `url('assets/fighter${playerNum}.png')`;
         }, 800);
     }
     
@@ -420,57 +426,75 @@ document.addEventListener('DOMContentLoaded', () => {
         game[player].isAttacking = true;
         game[player].attackType = 'punch';
         const fighterElement = player === 'player1' ? player1 : player2;
-        
+        const playerNum = player === 'player1' ? 1 : 2;
+
+        // Change image to punch sprite
+        fighterElement.style.backgroundImage = `url('assets/fighter${playerNum}punch.png')`;
+
         fighterElement.style.animation = 'none';
         void fighterElement.offsetWidth;
         fighterElement.style.animation = 'punch 0.3s ease-in-out';
-        
+
         setTimeout(() => {
             game[player].isAttacking = false;
+            // Revert to default sprite
+            fighterElement.style.backgroundImage = `url('assets/fighter${playerNum}.png')`;
         }, 300);
     }
     
     // Kick action
     function kick(player) {
         if (game[player].isAttacking) return;
-        
+
         game[player].isAttacking = true;
         game[player].attackType = 'kick';
         const fighterElement = player === 'player1' ? player1 : player2;
-        
+        const playerNum = player === 'player1' ? 1 : 2;
+
+        // Change image to kick sprite
+        fighterElement.style.backgroundImage = `url('assets/fighter${playerNum}kick.png')`;
+
         fighterElement.style.animation = 'none';
         void fighterElement.offsetWidth;
         fighterElement.style.animation = 'kick 0.4s ease-in-out';
-        
+
         setTimeout(() => {
             game[player].isAttacking = false;
+            // Revert to default sprite
+            fighterElement.style.backgroundImage = `url('assets/fighter${playerNum}.png')`;
         }, 400);
     }
     
     // Special move
     function specialMove(player) {
         if (game[player].isAttacking) return;
-        
+
         game[player].isAttacking = true;
         game[player].attackType = 'special';
         const fighterElement = player === 'player1' ? player1 : player2;
-        
+        const playerNum = player === 'player1' ? 1 : 2;
+
+        // Change image to special sprite
+        fighterElement.style.backgroundImage = `url('assets/fighter${playerNum}special.png')`;
+
         // Create special effect
         const specialEffect = document.createElement('div');
         specialEffect.classList.add('special-effect');
         specialEffect.style.left = `${game[player].position - 40}px`;
         specialEffect.style.bottom = '50px';
         gameScreen.appendChild(specialEffect);
-        
+
         fighterElement.style.animation = 'none';
         void fighterElement.offsetWidth;
         fighterElement.style.animation = 'specialMove 0.6s ease-in-out';
-        
+
         // Play sound
         specialSound.play();
-        
+
         setTimeout(() => {
             game[player].isAttacking = false;
+            // Revert to default sprite
+            fighterElement.style.backgroundImage = `url('assets/fighter${playerNum}.png')`;
             specialEffect.remove();
         }, 600);
     }
